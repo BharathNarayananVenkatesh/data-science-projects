@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirm Your Review</title>
+</head>
+<body>
+    <h1>Confirm Your Review for {{ item_title }}</h1>
+
+    <p>Review Text: {{ review_text }}</p>
+    <p>Model's Recommendation: {{ 'Recommended' if recommendation == 1 else 'Not Recommended' }}</p>
+
+    <form action="/finalize_review" method="POST">
+        <label for="final_recommendation">Do you recommend this item?</label>
+        <select id="final_recommendation" name="final_recommendation">
+            <option value="1" {% if recommendation == 1 %}selected{% endif %}>Yes</option>
+            <option value="0" {% if recommendation == 0 %}selected{% endif %}>No</option>
+        </select>
+
+        <input type="hidden" name="review_text" value="{{ review_text }}">
+        <input type="hidden" name="item_title" value="{{ item_title }}">
+
+        <button type="submit">Submit Review</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.env
+venv/
+env/
+embeddings/
+.ipynb_checkpoints
+
+# Jupyter
+*.ipynb_checkpoints
+
+# OS
+.DS_Store
+Thumbs.db
+
+# VSCode
+.vscode/
+
+# Data & models (if you prefer not to track)
+# data/*.csv
+# models/*.pkl
+
+# Logs
+*.log
+

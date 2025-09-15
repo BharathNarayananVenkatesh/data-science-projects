@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit a Review</title>
+</head>
+<body>
+    <h1>Submit a Review for {{ item_title }}</h1>
+    
+    <form action="/submit_review" method="POST">
+        <label for="review_text">Review:</label>
+        <textarea id="review_text" name="review_text" required></textarea>
+        
+        <input type="hidden" name="item_title" value="{{ item_title }}">
+        
+        <button type="submit">Submit Review</button>
+    </form>
+</body>
+</html>

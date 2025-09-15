@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ item.name }}</title>
+</head>
+<body>
+    <!-- Existing item details -->
+    <h1>{{ item.name }}</h1>
+    <p>Description: {{ item.description }}</p>
+    <p>Rating: {{ item.rating }}</p>
+    <p>Recommended: {{ item.recommended }}</p>
+
+    <h2>Reviews</h2>
+    <ul>
+    {% for review in item.reviews %}
+        <li>{{ review }}</li>
+    {% endfor %}
+    </ul>
+
+    <!-- Link to submit a new review -->
+    <a href="/submit_review_page/{{ item.name }}">Submit a Review</a>
+
+    <!-- New section: Recommended similar items -->
+    <h3>Similar Items You May Like</h3>
+    <ul>
+    {% for similar_item in similar_items %}
+        <li>
+            <a href="/item/{{ similar_item[0] }}">{{ similar_item[1] }}</a> - {{ similar_item[2] }}
+        </li>
+    {% endfor %}
+    </ul>
+</body>
+</html>
